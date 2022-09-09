@@ -38,9 +38,16 @@ nav li{
     display: inline-block;
     margin-left: 50px;
     padding-top: 32px;
+    font-size: larger;
+    font-weight: 600;
 }
 
 nav a{
     color: white;
     text-decoration: none;
 }
+
+nav a:hover{
+    color: black;
+}
+
