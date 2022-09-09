@@ -152,6 +152,7 @@ nav a:hover::before{
 .book-form p{
     font-size: 29px;
     margin: 15px 0;
+    color: white;
 }
 
 .book-form input{
