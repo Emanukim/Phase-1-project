@@ -37,7 +37,8 @@ nav ul{
 nav li{
     display: inline-block;
     margin-left: 50px;
-    padding-top: 32px;
+    padding: 25px;
+
     font-size: larger;
     font-weight: 600;
 }
@@ -49,5 +50,21 @@ nav a{
 
 nav a:hover{
     color: black;
+}
+
+nav a::before{
+    content: "";
+    display: block;
+    height:6px;
+    width: 100%;
+    background-color:black;
+    top: 0;
+    width: 0;
+    transition: all ease-in-out 350ms;
+}
+
+nav a:hover::before{
+    width:100%;
+
 }
 
