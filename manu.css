@@ -14,7 +14,7 @@ body {
     /* text-decoration: none; */
     /* list-style: none; */
     background-color: rgb(148, 106, 187);
-    background: url("./image/bedroom-image.jpg") no-repeat ;
+    background: url("./image/image-1.jpg") no-repeat ;
     /* background-image: no-repeat; */
     background-size: cover;
     /* background-repeat: repeat-x; */
@@ -45,7 +45,7 @@ h1{
 }
 
 h1:hover{
-    color: rgb(238, 94, 11);
+    color: rgb(160, 93, 55);
 }
 
 nav{
