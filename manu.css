@@ -28,6 +28,7 @@ body {
 }
 
 .container{
+    display: flex;
     width: 100%;
     margin:0 auto;
     background-color: rgb(94, 108, 115);
@@ -149,7 +150,7 @@ nav a:hover::before{
     width: 100%;
 }
 
-.book-form p{
+ p{
     font-size: 29px;
     margin: 15px 0;
     color: white;
@@ -182,6 +183,16 @@ nav a:hover::before{
 
 footer{
     color: aqua;
+}
+
+
+#booked{
+  background-color: rgb(41, 18, 90);
+  
+}
+
+#booked p{
+     color: rgb(219, 52, 241);
 }
 
 
