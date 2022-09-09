@@ -27,3 +27,20 @@ h1{
 nav{
     float: right;
 }
+
+nav ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+nav li{
+    display: inline-block;
+    margin-left: 50px;
+    padding-top: 32px;
+}
+
+nav a{
+    color: white;
+    text-decoration: none;
+}
