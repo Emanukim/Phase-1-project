@@ -171,7 +171,7 @@ nav a:hover::before{
     border: 0;
     border-radius: 5px;
     background-color: rgb(22, 22, 53);
-    color:rgb(71, 155, 158);
+    color:rgb(71, 155, 159);
 }
 
 .book-form button:hover{
