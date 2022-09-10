@@ -1,4 +1,5 @@
 document.getElementById("form-book").addEventListener("submit",submitButton);
+document.getElementById("booked").addEventListener("click",clickbutton);
 
 
 function submitButton(e){
@@ -16,6 +17,13 @@ function submitButton(e){
 
     madeABooking(bookObj);
     makeABooking(bookObj);
+
+
+}
+
+function clickbutton(e){
+    e.preventDefault();
+    console.log(click);
 }
 
 //fetch
@@ -48,10 +56,10 @@ function madeABooking(booking){
     booked.innerHTML = `
     <form  id="booked" >
     <p>NAME: ${booking.name}</p>
-    <p>Arrival date: ${booking.arrival}</p>
-    <p>Departure date: ${booking.departureDates}</p>
-    <p>NO OF ROOMS: ${booking.NoOfRooms}</p>
-    <button typy="submit" id='delete'>delete</button>
+    <p>Arrival date: ${booking.arrivalDate}</p>
+    <p>Departure date: ${booking.departureDate}</p>
+    <p>NO OF ROOMS: ${booking.noOfRooms}</p>
+    <button type="submit" id='delete'>delete</button>
     
 
 </form>
