@@ -1,14 +1,3 @@
 {
-  "bookings": [
-    {
-      "name": "emanu",
-      "arrivalDate": "",
-      "departureDate": "",
-      "noOfAdults": "",
-      "noOfChildren": "",
-      "noOfRooms": "",
-      "formOfPayment": "",
-      "id": 1
-    }
-  ]
+  "bookings": []
 }
