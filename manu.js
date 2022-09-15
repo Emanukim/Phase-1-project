@@ -1,7 +1,5 @@
+//add an event listener
 document.getElementById("form-book").addEventListener("submit",submitButton);
-document.getElementById("booked").addEventListener("click",clickbutton);
-
-
 function submitButton(e){
     e.preventDefault();
 
@@ -14,28 +12,23 @@ function submitButton(e){
         noOfRooms:e.target.noOfRooms.value,
         formOfPayment:e.target.formOfPayment.value,
     }
-
-    madeABooking(bookObj);
+    getTheBookings(bookObj);
     makeABooking(bookObj);
 
 
 }
 
-function clickbutton(e){
-    e.preventDefault();
-    console.log(click);
-}
 
-//fetch
+
+// diferent fetchings to the server
 function getTheBookings(){
-    fetch("http://localhost:3000")
+    fetch("http://localhost:3000/bookings")
     .then(res => res.json())
     .then(bookings => bookings.forEach(booking => madeABooking(booking)));
 }
 
 function makeABooking(bookObj){
-    // console.log(bookObj);
-  fetch("http://localhost:3000",{
+  fetch("http://localhost:3000/bookings",{
     method: "POST",
     headers:{
         'content-Type':'application/json'
@@ -43,10 +36,19 @@ function makeABooking(bookObj){
      body:JSON.stringify(bookObj)
   })
   .then(res => res.json())
-  .then(bookings => bookings.forEach(booking => makeABooking(booking)));
+//   .then(bookings => bookings.forEach(booking => makeABooking(booking)));
 }
+ function deleteBooking(id){
+    fetch(`http://localhost:3000/bookings/${id}`,{
+        method: "DELETE",
+        headers:{
+            'content-Type':'application/json'
+        },
+    })
+    .then(res => res.json())
 
-// makeABooking();
+ }
+
 
 //DOM manipulation
 
@@ -65,6 +67,12 @@ function madeABooking(booking){
 </form>
     
     `
+// booked.querySelector('#delete').addEventListener('submit', () => {
+//     e.preventDefault()
+//     booked.remove();
+//     deleteBooking(booking.id);
+//})
+
     document.getElementById('form-book').appendChild(booked);
 
 }
