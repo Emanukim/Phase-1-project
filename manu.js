@@ -12,21 +12,26 @@ function submitButton(e){
         noOfRooms:e.target.noOfRooms.value,
         formOfPayment:e.target.formOfPayment.value,
     }
-    getTheBookings(bookObj);
-    makeABooking(bookObj);
+    // getTheBookings(bookObj);
+    madeABooking(bookObj);
+    makeAndBook(bookObj);
+    deleteBooking(bookObj);
+
+
 
 
 }
 
 
 
-// diferent fetchings to the server
+// different fetchings to the server
 function getTheBookings(){
     fetch("http://localhost:3000/bookings")
     .then(res => res.json())
+    // .then(data =>console.log(data));
     .then(bookings => bookings.forEach(booking => madeABooking(booking)));
 }
-
+getTheBookings();
 function makeABooking(bookObj){
   fetch("http://localhost:3000/bookings",{
     method: "POST",
@@ -38,7 +43,7 @@ function makeABooking(bookObj){
   .then(res => res.json())
 //   .then(bookings => bookings.forEach(booking => makeABooking(booking)));
 }
- function deleteBooking(id){
+ function updateDeleteBooking(id){
     fetch(`http://localhost:3000/bookings/${id}`,{
         method: "DELETE",
         headers:{
@@ -46,8 +51,22 @@ function makeABooking(bookObj){
         },
     })
     .then(res => res.json())
+    .then(b);
 
  }
+
+ function makeAndBook(bookObj){
+     console.log(JSON.stringify(bookObj));
+    fetch("http://localhost:3000/bookings",{
+        method: "POST",
+        headers:{
+            'content-Type':'application/json'
+        },
+         body:JSON.stringify(bookObj)
+      })
+      .then(res => res.json())
+    }
+ 
 
 
 //DOM manipulation
@@ -61,18 +80,22 @@ function madeABooking(booking){
     <p>Arrival date: ${booking.arrivalDate}</p>
     <p>Departure date: ${booking.departureDate}</p>
     <p>NO OF ROOMS: ${booking.noOfRooms}</p>
-    <button type="submit" id='delete'>delete</button>
+    <button id="btn" >cancel</button>
     
 
 </form>
     
     `
-// booked.querySelector('#delete').addEventListener('submit', () => {
-//     e.preventDefault()
-//     booked.remove();
-//     deleteBooking(booking.id);
-//})
-
     document.getElementById('form-book').appendChild(booked);
+    booked.querySelector('#btn').addEventListener('click',() => {
+        booked.remove();
+        updateDeleteBooking(booking.id);
+      
+    })
+
+
 
 }
+
+
+
